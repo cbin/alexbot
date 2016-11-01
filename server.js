@@ -2,7 +2,12 @@ var builder = require('botbuilder');
 var restify = require('restify');
 var githubClient = require('./github-client.js');
 
-var connector = new builder.ChatConnector();
+var connector = new builder.ChatConnector(
+    {
+        appId: process.env.MICROSOFT_APP_ID,
+        appPassword: process.env.Microsoft_APP_PASSWORD
+    }
+);
 var bot = new builder.UniversalBot(connector);
 
 var dialog = new builder.IntentDialog();
