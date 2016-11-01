@@ -9,7 +9,7 @@ var connector = new builder.ChatConnector(
     }
 );
 var bot = new builder.UniversalBot(connector);
-var salesData = {
+/*var salesData = {
     "west": {
         units: 200,
         total: "$6,000"
@@ -37,9 +37,10 @@ bot.dialog('/', [
         }
     }
 ]);
+*/
 
 var dialog = new builder.IntentDialog();
-bot.dialog('/1', dialog);
+bot.dialog('/', dialog);
 dialog.matches(/^search/i, [
     function (session, args, next) {
         if (session.message.text.toLowerCase() == 'search') {
