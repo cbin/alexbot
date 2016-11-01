@@ -93,7 +93,7 @@ dialog.matches(/^search/i, [
     }
 ]);
 
-//bot.dialog('/1', dialog);
+//bot.dialog('/', dialog);
 
 var server = restify.createServer();
 server.listen(process.env.PORT || 3978);
