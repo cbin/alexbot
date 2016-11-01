@@ -39,6 +39,7 @@ bot.dialog('/', [
 ]);
 
 var dialog = new builder.IntentDialog();
+bot.dialog('/1', dialog);
 dialog.matches(/^search/i, [
     function (session, args, next) {
         if (session.message.text.toLowerCase() == 'search') {
@@ -91,7 +92,7 @@ dialog.matches(/^search/i, [
     }
 ]);
 
-//bot.dialog('/', dialog);
+//bot.dialog('/1', dialog);
 
 var server = restify.createServer();
 server.listen(process.env.PORT || 3978);
