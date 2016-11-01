@@ -66,6 +66,6 @@ dialog.matches(/^search/i, [
 bot.dialog('/', dialog);
 
 var server = restify.createServer();
-server.listen(process.env.PORT || 8080);
+server.listen(process.env.PORT || 3978);
 
 server.post('/api/messages', connector.listen());
