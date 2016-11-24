@@ -92,10 +92,23 @@ dialog.matches(/^search/i, [
         });
     }
 ]);
+function getChatPage(req, res, next) {
+  res.setHeader('Content-Type', 'text/html');
+  //res.contentType = 'text/html';
+  res.end("<html><title>Github ChatBot</title><body><div>This simple bot for search Github user. For begin work send: 'search'</div><br><iframe  width='500' height='500' src='https://webchat.botframework.com/embed/AAAA-ZZZZ-1111-9999-bbbb-yyyy-2222-7777?s=mb5BZTQ1sSI.cwA.1L8.eAP0nXGGFc4IuY6Uvr_U1Dotyiju7p2u5LrTLeeZzOw'></iframe></body></html>");
+  next();
+}
 
+function getHealth(req, res, next) {
+  res.send('health OK.');
+  next();
+}
 //bot.dialog('/', dialog);
 
 var server = restify.createServer();
 server.listen(process.env.PORT || 3978);
+server.get('/', getChatPage);
+server.get('/health', getHealth);
+
 
 server.post('/api/messages', connector.listen());
